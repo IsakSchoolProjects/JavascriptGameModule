@@ -1,0 +1,27 @@
+{
+  "name": "AlternativeEndingsGame",
+  "version": "1.0.0",
+  "description": "![Sitemap from GlooMaps](https://i.imgur.com/tbW0a9K.png \"Sitemap from GlooMaps\")",
+  "main": "index.js",
+  "dependencies": {
+    "autoprefixer": "^10.3.4",
+    "postcss": "^8.3.6",
+    "tailwindcss": "^2.2.14"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "npx tailwindcss -o ./public/css/tailwind.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/isakjensen/AlternativeEndingsGame.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/isakjensen/AlternativeEndingsGame/issues"
+  },
+  "homepage": "https://github.com/isakjensen/AlternativeEndingsGame#readme"
+}
