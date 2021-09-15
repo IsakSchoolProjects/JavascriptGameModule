@@ -81,6 +81,8 @@ async function AddVideo(player, scene)
 
     await delay((video.duration * 1000) + 750);
 
+    hud.innerHTML = "";
+
     DisplayHud(scene);
 }
 
