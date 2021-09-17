@@ -8,15 +8,24 @@
 
     <link rel="stylesheet" href="./css/tailwind.css">
     <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="https://kit-pro.fontawesome.com/releases/v5.15.4/css/pro.min.css" />
 </head>
 <body>
     <div id="game" class="min-h-screen flex flex-col bg-black font-scary text-4xl">
-        
+
         <div id="player"></div>
         
         <div id="hud" class="flex flex-row justify-between my-auto">
         
         </div>
+
+        <div class="absolute -bottom-1 left-1/2 transform -translate-x-1/2 bg-gray-800 px-16 py-8 rounded-t-xl border-r-2 border-l-2 border-t-2 border-gray-500 text-white opacity-75">
+            <div class="flex flex-row gap-48 font-mono text-4xl">
+              <span><i class="fad fa-key text-yellow-400"></i></span>
+              <span><i class="fad fa-flask-potion text-blue-400"></i></span>
+              <span class="whitespace-nowrap text-green-400">100 HP</span>
+            </div>
+          </div>
     </div>
 
     <script src="./js/game.js"></script>
