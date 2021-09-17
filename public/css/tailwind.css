@@ -660,6 +660,10 @@ video {
   flex-direction: column;
 }
 
+.gap-12 {
+  gap: 3rem;
+}
+
 .bg-black {
   --tw-bg-opacity: 1;
   background-color: rgba(0, 0, 0, var(--tw-bg-opacity));
@@ -674,9 +678,9 @@ video {
   font-family: Creepster;
 }
 
-.text-3xl {
-  font-size: 1.875rem;
-  line-height: 2.25rem;
+.text-4xl {
+  font-size: 2.25rem;
+  line-height: 2.5rem;
 }
 
 .text-9xl {
