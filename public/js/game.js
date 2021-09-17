@@ -1,103 +1,64 @@
 const delay = ms => new Promise(res => setTimeout(res, ms));
 
-let currentScene = 0;
-
 let game = document.querySelector("#game");
 let player = document.querySelector("#player");
-let hud = document.querySelector("#hud");
+let options = document.querySelector("#hud");
 
-let scenes = [
-    {
-        id: 0,
-        image: './media/img/Scene_1.jpg',
-        video: null,
-        videoLength: null,
-        options: [['left', 1], ['right', 0]],
-        hp: 100,
-    },
-    {
-        id: 1,
-        image: null,
-        video: './media/video/Scene_1.mp4',
-        videoLength: 5000,
-        options: [['forward', 2], ['enter toilet', 3]],
-        hp: 100,
-        next: 2,
-    },
-    {
-        id: 2,
-        image: null,
-        video: './media/video/Scene_2.mp4',
-        videoLength: 5000,
-        options: [['check window', 5], ['down stairs', 6]],
-        hp: 100,
-    },
-    {
-        id: 3,
-        image: null,
-        video: './media/video/Scene_3.mp4',
-        videoLength: 5000,
-        options: [['leave', 2], ['take key', 0]],
-        hp: 100,
-    },
-    {
-        id: 4,
-        image: null,
-        video: './media/video/Scene_4.mp4',
-        videoLength: 5000,
-        options: [['forward', 2], ['stop', 0]],
-        hp: 100,
-    },
-    {
-        id: 5,
-        image: null,
-        video: './media/video/Scene_5.mp4',
-        videoLength: 5000,
-        options: null,
-        hp: 100,
-    },
-    {
-        id: 6,
-        image: null,
-        video: './media/video/Scene_6.mp4',
-        videoLength: 5000,
-        options: 1,
-        hp: 100,
-    },
-];
+let hasKey = true;
+
+let scenes = [];
 
 (async function() {
-    
-    RenderScene(currentScene);
 
+    await fetch('./js/scenes.json').then(response => response.json()).then(data => {
+        scenes = data;
+    });
 
-
-
+    RenderScene(6);
 })();
 
 async function RenderScene(sceneNumber)
 {
-    hud.innerHTML = "";
+    options.innerHTML = "";
+    game.style.backgroundImage = "none";
 
     let scene = scenes[sceneNumber];
 
     if(scene.video !== null)
     {
+        let video = scene.video;
+
+        // // Key mechanism 
+        // if(scene.id === 7 && hasKey) {
+        //     video = scene.video[1];
+        // } else if(scene.id === 7 && !hasKey) {
+        //     video = scene.video[0];
+        // } else {
+        //     video = scene.video;
+        // }
+
         player.innerHTML = `
         <video id="video" width="100%" height="100%">
-            <source src="${scene.video}" type="video/mp4">
+            <source src="${video}" type="video/mp4">
             Your browser does not support HTML5 video.
         </video>
         `;
 
-        let video = document.getElementById("video");
+        video = document.getElementById("video");
 
+        // Video starts playing
         video.play();
 
-        console.log('The video that is playing is', scene.video);
-
+        //  Waiting for video to end
         await delay(scene.videoLength);
 
+        if(scene.id === 6 && hasKey) {
+            RenderScene(8);
+        } else if(scene.id === 6 && !hasKey) {
+            RenderScene(7)
+        }
+
+        // Video has ended, rendering buttons
         RenderButtons(sceneNumber);
     }
     else if(scene.image !== null)
@@ -110,26 +71,19 @@ async function RenderScene(sceneNumber)
     }
 }
 
-function PreRender(sceneNumber)
-{
-    console.log('PreRender gets param', sceneNumber);
-
-    currentScene = sceneNumber;
-
-    RenderScene(currentScene);
-}
-
 function RenderButtons(sceneNumber)
 {
     let scene = scenes[sceneNumber];
 
+    // Render death screen
     if(scene.options == null)
     {
-        return PreRender(0);
+        return RenderScene(0);
     }
 
+    // Loop buttons
     for (let i = 0; i < scene.options.length; i++)
     {
-        hud.innerHTML += `<button onclick="PreRender(${scene.options[i][1]})" class="bg-gray-200 border-2 border-gray-400 shadow-lg rounded-md px-3 py-2 mx-12 transform hover:scale-105">${scene.options[i][0]}</button> `
+        options.innerHTML += `<button onclick="RenderScene(${scene.options[i][1]})" class="bg-gray-200 border-2 border-gray-400 shadow-lg rounded-md px-3 py-2 mx-12 transform hover:scale-105">${scene.options[i][0]}</button> `
     }
 }
