@@ -68,7 +68,7 @@
         "image": null,
         "video": "./media/video/Scene_8.mp4",
         "videoLength": 3776,
-        "options": [["go outside", 9], ["right"]],
+        "options": [["go outside", 9], ["right", 10]],
         "hp": 100
     },
     {
@@ -77,6 +77,14 @@
         "video": "./media/video/Scene_9.mp4",
         "videoLength": 10155,
         "options": null,
+        "hp": 100
+    },
+    {
+        "id": 10,
+        "image": null,
+        "video": "./media/video/Scene_10.mp4",
+        "videoLength": 10752,
+        "options": 0,
         "hp": 100
     }
 ]

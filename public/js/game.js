@@ -14,7 +14,7 @@ let scenes = [];
         scenes = data;
     });
 
-    RenderScene(6);
+    RenderScene(0);
 })();
 
 async function RenderScene(sceneNumber)
@@ -84,6 +84,6 @@ function RenderButtons(sceneNumber)
     // Loop buttons
     for (let i = 0; i < scene.options.length; i++)
     {
-        options.innerHTML += `<button onclick="RenderScene(${scene.options[i][1]})" class="bg-gray-200 border-2 border-gray-400 shadow-lg rounded-md px-3 py-2 mx-12 transform hover:scale-105">${scene.options[i][0]}</button> `
+        options.innerHTML += `<button onclick="RenderScene(${scene.options[i][1]})" class="option mx-16 text-5xl text-red-700 transform hover:scale-105">${scene.options[i][0]}</button> `
     }
 }
