@@ -28,15 +28,6 @@ async function RenderScene(sceneNumber)
     {
         let video = scene.video;
 
-        // // Key mechanism 
-        // if(scene.id === 7 && hasKey) {
-        //     video = scene.video[1];
-        // } else if(scene.id === 7 && !hasKey) {
-        //     video = scene.video[0];
-        // } else {
-        //     video = scene.video;
-        // }
-
         player.innerHTML = `
         <video id="video" width="100%" height="100%">
             <source src="${video}" type="video/mp4">
@@ -44,10 +35,10 @@ async function RenderScene(sceneNumber)
         </video>
         `;
 
-        video = document.getElementById("video");
+        let videoElement = document.getElementById("video");
 
         // Video starts playing
-        video.play();
+        videoElement.play();
 
         //  Waiting for video to end
         await delay(scene.videoLength);
@@ -63,10 +54,13 @@ async function RenderScene(sceneNumber)
     }
     else if(scene.image !== null)
     {
+        // The scene is an image, we clear the player element so it doesn't contain a video
         player.innerHTML = "";
 
+        // Since the scene is an image, we render the image as a background
         game.style.backgroundImage = `url(${scene.image})`;
 
+        // Once the image has been rendered its time to show the options, we render the buttons
         RenderButtons(sceneNumber);
     }
 }
