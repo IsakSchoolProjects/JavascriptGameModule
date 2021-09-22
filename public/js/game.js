@@ -31,15 +31,14 @@ async function RenderScene(sceneNumber)
     // Ready for a new scene
     let scene = scenes[sceneNumber];
     
-    
-    if(scene.id === 0){
+    if(scene.id === 0)
+    {
         currentHp = 100;
         hasKey = false;
         hasSoda = false;
 
         keyElement.classList.add("invisible");
         sodaElement.classList.add("invisible");
-        
     }
 
     if(scene.video !== null)
@@ -60,12 +59,6 @@ async function RenderScene(sceneNumber)
 
         //  Waiting for video to end
         await delay(scene.videoLength);
-
-        // if(scene.id === 6 && hasKey) {
-        //     RenderScene(8);
-        // } else if(scene.id === 6 && !hasKey) {
-        //     RenderScene(7)
-        // }
 
         if(scene.id === 6)
         {
@@ -153,14 +146,6 @@ function RenderButtons(sceneNumber)
         {
             nextScene = scene.options[i][1]
         }
-
-        // if(i === 1 && hasKey && (scene.id === 2 || scene.id === 7)){
-        //     nextScene = 8;
-        // }else if(i === 1 && !hasKey && (scene.id === 2 || scene.id === 7)){
-        //     nextScene = 9;
-        // }else{
-        //     nextScene = scene.options[i][1];
-        // }
 
         options.innerHTML += `<button onclick="RenderScene(${nextScene})" class="option mx-16 text-5xl text-red-700 transform hover:scale-105">${scene.options[i][0]}</button> `
     }
