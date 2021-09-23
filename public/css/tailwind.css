@@ -10037,33 +10037,6 @@ video {
           animation: bounce 1s infinite;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .motion-safe\:animate-none {
-    -webkit-animation: none;
-            animation: none;
-  }
-
-  .motion-safe\:animate-spin {
-    -webkit-animation: spin 1s linear infinite;
-            animation: spin 1s linear infinite;
-  }
-
-  .motion-safe\:animate-ping {
-    -webkit-animation: ping 1s cubic-bezier(0, 0, 0.2, 1) infinite;
-            animation: ping 1s cubic-bezier(0, 0, 0.2, 1) infinite;
-  }
-
-  .motion-safe\:animate-pulse {
-    -webkit-animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-            animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-  }
-
-  .motion-safe\:animate-bounce {
-    -webkit-animation: bounce 1s infinite;
-            animation: bounce 1s infinite;
-  }
-}
-
 .cursor-auto {
   cursor: auto;
 }
@@ -41647,6 +41620,7 @@ video {
             animation: bounce 1s infinite;
   }
 
+<<<<<<< HEAD
   @media (prefers-reduced-motion: no-preference) {
     .sm\:motion-safe\:animate-none {
       -webkit-animation: none;
@@ -41674,6 +41648,8 @@ video {
     }
   }
 
+=======
+>>>>>>> game
   .sm\:cursor-auto {
     cursor: auto;
   }
@@ -72905,6 +72881,7 @@ video {
             animation: bounce 1s infinite;
   }
 
+<<<<<<< HEAD
   @media (prefers-reduced-motion: no-preference) {
     .md\:motion-safe\:animate-none {
       -webkit-animation: none;
@@ -72932,6 +72909,8 @@ video {
     }
   }
 
+=======
+>>>>>>> game
   .md\:cursor-auto {
     cursor: auto;
   }
@@ -104163,6 +104142,7 @@ video {
             animation: bounce 1s infinite;
   }
 
+<<<<<<< HEAD
   @media (prefers-reduced-motion: no-preference) {
     .lg\:motion-safe\:animate-none {
       -webkit-animation: none;
@@ -104190,6 +104170,8 @@ video {
     }
   }
 
+=======
+>>>>>>> game
   .lg\:cursor-auto {
     cursor: auto;
   }
@@ -135421,6 +135403,7 @@ video {
             animation: bounce 1s infinite;
   }
 
+<<<<<<< HEAD
   @media (prefers-reduced-motion: no-preference) {
     .xl\:motion-safe\:animate-none {
       -webkit-animation: none;
@@ -135448,6 +135431,8 @@ video {
     }
   }
 
+=======
+>>>>>>> game
   .xl\:cursor-auto {
     cursor: auto;
   }
@@ -166679,6 +166664,7 @@ video {
             animation: bounce 1s infinite;
   }
 
+<<<<<<< HEAD
   @media (prefers-reduced-motion: no-preference) {
     .\32xl\:motion-safe\:animate-none {
       -webkit-animation: none;
@@ -166706,6 +166692,8 @@ video {
     }
   }
 
+=======
+>>>>>>> game
   .\32xl\:cursor-auto {
     cursor: auto;
   }

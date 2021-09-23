@@ -1,0 +1,175 @@
+[
+    {
+        "_comment": "första scenen som är en bild",
+        "id": 0,
+        "image": "./media/img/Scene_1.jpg",
+        "video": null,
+        "videoLength": null,
+        "options": [["left", 1],["right", 13]],
+        "hp": null
+    },
+    {
+        "_comment": "du har gott vänster och står utanför toaletten",
+        "id": 1,
+        "image": null,
+        "video": "./media/video/Scene_1.mp4",
+        "videoLength": 5078,
+        "options": [["forward", 2], ["enter toilet", 4]],
+        "hp": null
+    },
+    {
+        "_comment": "Du har gott rakt fram istället för in på toaletten",
+        "id": 2,
+        "image": null,
+        "video": "./media/video/Scene_2.mp4",
+        "videoLength": 10368,
+        "options": [["check window", 3], ["down stairs", 0]],
+        "hp": null
+    },
+    {
+        "_comment": "Du kollar fönstret och dör",
+        "id": 3,
+        "image": null,
+        "video": "./media/video/Scene_3.mp4",
+        "videoLength": 6208,
+        "options": null,
+        "hp": 0
+    },
+    {
+        "_comment": "Du går in på toaletten",
+        "id": 4,
+        "image": null,
+        "video": "./media/video/Scene_4.mp4",
+        "videoLength": 4395,
+        "options": [["leave", 2], ["take key", 6]],
+        "hp": [false, 80, 100]
+    },
+    {},
+    {
+        "_comment": "Du tar nyckeln och går ut, hasKey = true",
+        "id": 6,
+        "image": null,
+        "video": "./media/video/Scene_6.mp4",
+        "videoLength": 3712,
+        "options": [["leave", 7]],
+        "hp": null
+    },
+    {
+        "_comment": "har nyckeln och kommer till fönstret och trapporna",
+        "id": 7,
+        "image": null,
+        "video": "./media/video/Scene_7.mp4",
+        "videoLength": 12715,
+        "options": [["check window", 3], ["downstairs", 0]],
+        "hp": null
+    },
+    {
+        "_comment": "du går ner för trappan och har nyckeln",
+        "id": 8,
+        "image": null,
+        "video": "./media/video/Scene_8.mp4",
+        "videoLength": 16171,
+        "options": [["go outside", 10], ["right", 12]],
+        "hp": null
+    },
+    {
+        "_comment": "du går ner för trappan och dörren är låst",
+        "id": 9,
+        "image": null,
+        "video": "./media/video/Scene_9.mp4",
+        "videoLength": 15488,
+        "options": [["go outside", 11]],
+        "hp": null
+    },
+    {
+        "_comment":"du går ut och dör",
+        "id": 10,
+        "image": null,
+        "video": "./media/video/Scene_10.mp4",
+        "videoLength": 9515,
+        "options": null,
+        "hp": null
+    },
+    {
+        "_comment":"du går ut och dör",
+        "id": 11,
+        "image": null,
+        "video": "./media/video/Scene_11.mp4",
+        "videoLength": 13014,
+        "options": null,
+        "hp": null
+    },
+    {
+        "_comment":"du går höger och dör",
+        "id": 12,
+        "image": null,
+        "video": "./media/video/Scene_12.mp4",
+        "videoLength": 10752,
+        "options": [[""], ["go get a soda", 18]],
+        "hp": null
+    },
+    {
+        "_comment":"du går till höger och stannar vid toaletten",
+        "id": 13,
+        "image": null,
+        "video": "./media/video/Scene_13.mp4",
+        "videoLength": 9750,
+        "options": [["check toilet",14],["go forward", 15]],
+        "hp": null
+    },
+    {
+        "_comment":"du hör ljud från toan och springer därifrån och kommer ner där nere",
+        "id": 14,
+        "image": null,
+        "video": "./media/video/Scene_14.mp4",
+        "videoLength": 27371,
+        "options": [["go get a soda", 16],["go outside", 20]],
+        "hp": [false, 80, 100]
+    },
+    {},
+    {
+        "_comment":"Du går mot drickautomaten",
+        "id": 16,
+        "image": null,
+        "video": "./media/video/Scene_16.mp4",
+        "videoLength": 8427,
+        "options": [["go left", 17],["buy a soda", 18]],
+        "hp": null
+    },
+    {
+        "_comment":"Du skiter o att köpa en dricka, går vänster och dör",
+        "id": 17,
+        "image": null,
+        "video": "./media/video/Scene_17.mp4",
+        "videoLength": 11136,
+        "options": null,
+        "hp": null
+    },
+    {
+        "_comment":"Du köper en coca cola",
+        "id": 18,
+        "image": null,
+        "video": "./media/video/Scene_18.mp4",
+        "videoLength": 9600,
+        "options": [[" ", 0],["go outside", 19]],
+        "hp": [true, 80, 100]
+    },
+    {
+        "_comment":"Du går ut och överlever",
+        "id": 19,
+        "image": null,
+        "video": "./media/video/Scene_19.mp4",
+        "videoLength": 13376,
+        "options": null,
+        "hp": null
+    },
+    {
+        "_comment":"Du går direkt ut och dör",
+        "id": 20,
+        "image": null,
+        "video": "./media/video/Scene_20.mp4",
+        "videoLength": 10539,
+        "options": null,
+        "hp": null
+    }
+]
