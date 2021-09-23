@@ -2,7 +2,8 @@ const delay = ms => new Promise(res => setTimeout(res, ms));
 
 let game = document.querySelector("#game");
 let player = document.querySelector("#player");
-let options = document.querySelector("#hud");
+let options = document.querySelector("#options");
+let hud = document.querySelector("#hud");
 let hp = document.getElementById("playerHp");
 let keyElement = document.getElementById("key");
 let sodaElement = document.getElementById("soda");
@@ -19,8 +20,32 @@ let scenes = [];
         scenes = data;
     });
 
+    if(localStorage.getItem('scene') !== "0")
+    {
+        document.getElementById("reset").classList.remove("invisible");
+
+        return RenderBlack();
+    }
+
     RenderScene(0);
 })();
+
+function RestoreProgress()
+{
+    document.getElementById("reset").classList.add("invisible");
+    hud.classList.remove("invisible");
+
+    RenderScene(localStorage.getItem('scene'));
+}
+
+function ResetToStart()
+{
+    hud.classList.remove("invisible");
+
+    localStorage.setItem('scene', '0');
+
+    RenderScene(0);
+}
 
 async function RenderScene(sceneNumber)
 {
@@ -39,6 +64,14 @@ async function RenderScene(sceneNumber)
 
         keyElement.classList.add("invisible");
         sodaElement.classList.add("invisible");
+
+        document.getElementById("reset").classList.add("invisible");
+        hud.classList.add("invisible");
+    }
+    else if(scene.id !== 0)
+    {
+        localStorage.setItem('scene', scene.id);
+        hud.classList.remove("invisible");
     }
 
     // PLay sound after first scenes
@@ -97,6 +130,7 @@ async function RenderScene(sceneNumber)
             {
                 currentHp -= Random(80, 100);
             }
+
             hp.innerHTML = `${currentHp} HP`;
         }
 
@@ -155,6 +189,13 @@ function RenderButtons(sceneNumber)
 
         options.innerHTML += `<button onclick="RenderScene(${nextScene})" class="option mx-16 text-5xl text-red-700 transform hover:scale-105">${scene.options[i][0]}</button> `
     }
+}
+
+function RenderBlack()
+{
+    hud.classList.add("invisible");
+
+    game.style.background = "black";
 }
 
 function Random(min, max)

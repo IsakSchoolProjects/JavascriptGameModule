@@ -17,12 +17,17 @@
         <audio id="bg-music" src="./media/sound/bg-sound.mp3" loop="loop"></audio>
 
         <div id="player"></div>
-        <div id="hud" class="flex flex-row justify-between my-auto"></div>
+        <div id="options" class="flex flex-row justify-between my-auto"></div>
 
-        <div class="absolute bg-gradient-to-r from-gray-900 via-gray-700 to-gray-900 px-12 py-4 bottom-0 left-1/2 transform -translate-x-1/2 rounded-t-lg flex flex-row gap-28 border-t-4 border-r-4 border-l-4 border-gray-800 font-scary opacity-70">
+        <div id="hud" class="absolute bg-gradient-to-r from-gray-900 via-gray-700 to-gray-900 px-12 py-4 bottom-0 left-1/2 transform -translate-x-1/2 rounded-t-lg flex flex-row gap-28 border-t-4 border-r-4 border-l-4 border-gray-800 font-scary opacity-70">
           <div><i id="soda" class="fas fa-flask-potion text-red-600 text-4xl animate-pulse invisible"></i></div>
           <div id="playerHp" class="text-green-400 text-4xl text-center whitespace-nowrap">100 HP</div>
           <div><i id="key" class="fas fa-key-skeleton text-yellow-500 text-4xl animate-pulse invisible"></i></div>
+        </div>
+
+        <div id="reset" class="absolute flex flex-col gap-4 bottom-1/2 left-1/2 transform -translate-x-1/2 translate-y-1/2 invisible">
+            <button onclick="RestoreProgress()" class="option text-white text-6xl">Restore progress</button>
+            <button onclick="ResetToStart()" class="option text-gray-500 text-4xl">Reset to start</button>
         </div>
     </div>
 
