@@ -3,7 +3,6 @@ const delay = ms => new Promise(res => setTimeout(res, ms));
 let game = document.querySelector("#game");
 let player = document.querySelector("#player");
 let options = document.querySelector("#options");
-let hud = document.querySelector("#hud");
 let hp = document.getElementById("playerHp");
 let keyElement = document.getElementById("key");
 let sodaElement = document.getElementById("soda");
@@ -22,30 +21,13 @@ let scenes = [];
 
     if(localStorage.getItem('scene') !== "0")
     {
-        document.getElementById("reset").classList.remove("invisible");
-
-        return RenderBlack();
+        Pause();
     }
-
-    RenderScene(0);
+    else
+    {
+        RenderScene(0);
+    }
 })();
-
-function RestoreProgress()
-{
-    document.getElementById("reset").classList.add("invisible");
-    hud.classList.remove("invisible");
-
-    RenderScene(localStorage.getItem('scene'));
-}
-
-function ResetToStart()
-{
-    hud.classList.remove("invisible");
-
-    localStorage.setItem('scene', '0');
-
-    RenderScene(0);
-}
 
 async function RenderScene(sceneNumber)
 {
@@ -65,19 +47,23 @@ async function RenderScene(sceneNumber)
         keyElement.classList.add("invisible");
         sodaElement.classList.add("invisible");
 
-        document.getElementById("reset").classList.add("invisible");
-        hud.classList.add("invisible");
+        ShowResetOptions(false);
+        ShowTryAgain(false);
+        ShowHud(false);
     }
     else if(scene.id !== 0)
     {
         localStorage.setItem('scene', scene.id);
-        hud.classList.remove("invisible");
+
+        ShowHud(true);
+
+        ShowPauseButton(true);
     }
 
     // PLay sound after first scenes
     if(scene.id === 1 || scene.id === 13)
     {
-        document.getElementById('bg-music').play();
+        PlayMusic(true);
     }
 
     if(scene.video !== null)
@@ -128,7 +114,7 @@ async function RenderScene(sceneNumber)
             } 
             else if(!scene.hp[0])
             {
-                currentHp -= Random(80, 100);
+                currentHp -= Random(scene.hp[1], scene.hp[2]);
             }
 
             hp.innerHTML = `${currentHp} HP`;
@@ -137,10 +123,12 @@ async function RenderScene(sceneNumber)
         
         // Video has ended, rendering buttons
         RenderButtons(sceneNumber);
+
         if(currentHp === 0)
         {
-            RenderScene(0);
+            Die();
         }
+
         hp.innerHTML = `${currentHp} HP`;
     }
     else if(scene.image !== null)
@@ -158,7 +146,6 @@ async function RenderScene(sceneNumber)
 
 function RenderButtons(sceneNumber)
 {
-    
     let scene = scenes[sceneNumber];
 
     // Render death screen
@@ -187,18 +174,6 @@ function RenderButtons(sceneNumber)
             nextScene = scene.options[i][1]
         }
 
-        options.innerHTML += `<button onclick="RenderScene(${nextScene})" class="option mx-16 text-5xl text-red-700 transform hover:scale-105">${scene.options[i][0]}</button> `
+        options.innerHTML += '<button onclick="RenderScene(' + nextScene + ')" class="option mx-16 text-5xl text-red-700 transform hover:scale-105">' + scene.options[i][0] + '</button>';
     }
-}
-
-function RenderBlack()
-{
-    hud.classList.add("invisible");
-
-    game.style.background = "black";
-}
-
-function Random(min, max)
-{
-    return Math.floor(Math.random() * (max - min + 1)) + min;
 }

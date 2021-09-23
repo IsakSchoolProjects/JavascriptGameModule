@@ -42,7 +42,7 @@
         "video": "./media/video/Scene_4.mp4",
         "videoLength": 4395,
         "options": [["leave", 2], ["take key", 6]],
-        "hp": [false, 80, 100]
+        "hp": [false, 10, 50]
     },
     {},
     {
@@ -78,7 +78,7 @@
         "image": null,
         "video": "./media/video/Scene_9.mp4",
         "videoLength": 15488,
-        "options": [["go outside", 11]],
+        "options": [[""], ["check the door", 11]],
         "hp": null
     },
     {
