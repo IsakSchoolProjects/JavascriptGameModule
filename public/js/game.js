@@ -41,6 +41,12 @@ async function RenderScene(sceneNumber)
         sodaElement.classList.add("invisible");
     }
 
+    // PLay sound after first scenes
+    if(scene.id === 1 || scene.id === 13)
+    {
+        document.getElementById('bg-music').play();
+    }
+
     if(scene.video !== null)
     {
         let video = scene.video;
