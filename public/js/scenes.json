@@ -126,7 +126,15 @@
         "options": [["go get a soda", 16],["go outside", 20]],
         "hp": [false, 80, 100]
     },
-    {},
+    {
+        "_comment": "du väljer att gå rakt fram istället för att gå in på toan",
+        "id": 15,
+        "image": null,
+        "video": "./media/video/Scene_15.mp4",
+        "videoLength": 26496,
+        "options": [["go get a soda", 16],["go outside", 20]],
+        "hp": null
+    },
     {
         "_comment":"Du går mot drickautomaten",
         "id": 16,
