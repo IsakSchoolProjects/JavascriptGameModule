@@ -3,7 +3,6 @@ const delay = ms => new Promise(res => setTimeout(res, ms));
 let game = document.querySelector("#game");
 let player = document.querySelector("#player");
 let options = document.querySelector("#options");
-let hp = document.getElementById("playerHp");
 let keyElement = document.getElementById("key");
 let sodaElement = document.getElementById("soda");
 
@@ -42,6 +41,8 @@ async function RenderScene(sceneNumber)
     // Show pause button for each scene
     ShowPauseButton(true);
 
+    ShowTryAgain(false);
+
     if(scene.id === 0)
     {
         currentHp = 100;
@@ -52,15 +53,14 @@ async function RenderScene(sceneNumber)
         sodaElement.classList.add("invisible");
 
         ShowResetOptions(false);
-        ShowTryAgain(false);
-        ShowHud(false);
     }
     else if(scene.id !== 0)
     {
         localStorage.setItem('scene', scene.id);
-
-        ShowHud(true);
     }
+
+    ShowHud(true);
+    RenderHP(currentHp);
 
     // PLay sound after first scenes
     if(scene.id === 1 || scene.id === 13)
@@ -70,7 +70,25 @@ async function RenderScene(sceneNumber)
 
     if(scene.video !== null)
     {
-        let video = scene.video;
+        let video = "";
+
+        if(Array.isArray(scene.video))
+        {
+            if(scene.id === 19 && currentHp >= 100)
+            {
+                video = scene.video[3];
+            }
+            else
+            {
+                video = scene.video[Random(0, scene.video.length - 1)];
+            }
+        }
+        else
+        {
+            video = scene.video;
+        }
+
+        console.log(video);
 
         player.innerHTML = `
         <video id="video" width="100%" height="100%">
@@ -85,7 +103,21 @@ async function RenderScene(sceneNumber)
         videoElement.play();
 
         //  Waiting for video to end
-        await delay(scene.videoLength);
+        if(Array.isArray(scene.videoLength))
+        {
+            if(scene.id === 19 && currentHp >= 100)
+            {
+                await delay(scene.videoLength[3]);
+            }
+            else
+            {
+                await delay(scene.videoLength[scene.video.indexOf(video)]);
+            }
+        }
+        else
+        {
+            await delay(scene.videoLength);
+        }
 
         if(scene.id === 6)
         {
@@ -119,7 +151,7 @@ async function RenderScene(sceneNumber)
                 currentHp -= Random(scene.hp[1], scene.hp[2]);
             }
 
-            hp.innerHTML = `${currentHp} HP`;
+            RenderHP(currentHp);
         }
 
         
@@ -131,7 +163,7 @@ async function RenderScene(sceneNumber)
             Die();
         }
 
-        hp.innerHTML = `${currentHp} HP`;
+        RenderHP(currentHp);
     }
     else if(scene.image !== null)
     {
@@ -154,6 +186,14 @@ function RenderButtons(sceneNumber)
     if(scene.options == null)
     {
         return currentHp = 0;
+    }
+    else if(currentHp >= 100 && scene.options === true)
+    {
+        ShowVictoryScreen();
+    }
+    else if(currentHp < 100 && scene.options === true)
+    {
+        Die();
     }
 
     let nextScene = 0;

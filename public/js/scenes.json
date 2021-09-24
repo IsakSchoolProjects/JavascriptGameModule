@@ -39,7 +39,7 @@
         "_comment": "Du går in på toaletten",
         "id": 4,
         "image": null,
-        "video": "./media/video/Scene_4_fx.mp4",
+        "video": "./media/video/Scene_4.mp4",
         "videoLength": 12352,
         "options": [["leave", 2], ["take key", 6]],
         "hp": [false, 10, 50]
@@ -49,7 +49,7 @@
         "_comment": "Du tar nyckeln och går ut, hasKey = true",
         "id": 6,
         "image": null,
-        "video": "./media/video/Scene_6_v2.mp4",
+        "video": "./media/video/Scene_6.mp4",
         "videoLength": 3520,
         "options": [["leave", 7]],
         "hp": null
@@ -85,8 +85,8 @@
         "_comment":"du går ut och dör",
         "id": 10,
         "image": null,
-        "video": "./media/video/Scene_10_v2.mp4",
-        "videoLength": 15787,
+        "video": ["./media/video/Scene_10_v1.mp4", "./media/video/Scene_10_v2.mp4", "./media/video/Scene_10_v3.mp4"],
+        "videoLength": [16406, 15787, 15104],
         "options": null,
         "hp": null
     },
@@ -94,8 +94,8 @@
         "_comment":"du går ut och dör",
         "id": 11,
         "image": null,
-        "video": "./media/video/Scene_11_v3.mp4",
-        "videoLength": 18603,
+        "video": ["./media/video/Scene_11_v1.mp4", "./media/video/Scene_11_v2.mp4", "./media/video/Scene_11_v3.mp4"],
+        "videoLength": [20416, 18795, 18603],
         "options": null,
         "hp": null
     },
@@ -166,17 +166,17 @@
         "_comment":"Du går ut och överlever",
         "id": 19,
         "image": null,
-        "video": "./media/video/Scene_19_victory.mp4",
-        "videoLength": 19435,
-        "options": null,
+        "video": ["./media/video/Scene_19_v1.mp4", "./media/video/Scene_19_v2.mp4", "./media/video/Scene_19_v3.mp4", "./media/video/Scene_19_victory.mp4"],
+        "videoLength": [18347, 20736, 20822, 19435],
+        "options": true,
         "hp": null
     },
     {
         "_comment":"Du går direkt ut och dör",
         "id": 20,
         "image": null,
-        "video": "./media/video/Scene_20_v2.mp4",
-        "videoLength": 16790,
+        "video": ["./media/video/Scene_20_v1.mp4", "./media/video/Scene_20_v2.mp4", "./media/video/Scene_20_v3.mp4"],
+        "videoLength": [14806, 16790, 15595],
         "options": null,
         "hp": null
     }

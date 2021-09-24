@@ -93,6 +93,26 @@ function Die()
     PlayMusic(false);
 }
 
+function RenderHP(hp)
+{
+    document.getElementById("playerHp").innerHTML = `${hp} Health`;
+}
+
+function ShowVictoryScreen(toggle)
+{
+    if(toggle) {
+        document.getElementById("victory").classList.remove("invisible");
+    } else {
+        document.getElementById("victory").classList.add("invisible");
+    }
+
+    // Remove the video so we can show the dead image
+    player.innerHTML = "";
+
+    // Render the winner background
+    game.style.backgroundImage = "url('https://thumbs.dreamstime.com/b/victory-text-gold-surface-black-background-d-rendering-201128796.jpg')";
+}
+
 /*
 //      Utilities
 */
