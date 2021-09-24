@@ -31,7 +31,7 @@
         "id": 3,
         "image": null,
         "video": "./media/video/Scene_3.mp4",
-        "videoLength": 6208,
+        "videoLength": 12032,
         "options": null,
         "hp": 0
     },
@@ -39,8 +39,8 @@
         "_comment": "Du går in på toaletten",
         "id": 4,
         "image": null,
-        "video": "./media/video/Scene_4.mp4",
-        "videoLength": 4395,
+        "video": "./media/video/Scene_4_fx.mp4",
+        "videoLength": 12352,
         "options": [["leave", 2], ["take key", 6]],
         "hp": [false, 10, 50]
     },
@@ -49,8 +49,8 @@
         "_comment": "Du tar nyckeln och går ut, hasKey = true",
         "id": 6,
         "image": null,
-        "video": "./media/video/Scene_6.mp4",
-        "videoLength": 3712,
+        "video": "./media/video/Scene_6_v2.mp4",
+        "videoLength": 3520,
         "options": [["leave", 7]],
         "hp": null
     },
@@ -85,8 +85,8 @@
         "_comment":"du går ut och dör",
         "id": 10,
         "image": null,
-        "video": "./media/video/Scene_10.mp4",
-        "videoLength": 9515,
+        "video": "./media/video/Scene_10_v2.mp4",
+        "videoLength": 15787,
         "options": null,
         "hp": null
     },
@@ -94,8 +94,8 @@
         "_comment":"du går ut och dör",
         "id": 11,
         "image": null,
-        "video": "./media/video/Scene_11.mp4",
-        "videoLength": 13014,
+        "video": "./media/video/Scene_11_v3.mp4",
+        "videoLength": 18603,
         "options": null,
         "hp": null
     },
@@ -104,7 +104,7 @@
         "id": 12,
         "image": null,
         "video": "./media/video/Scene_12.mp4",
-        "videoLength": 10752,
+        "videoLength": 23275,
         "options": [[""], ["go get a soda", 18]],
         "hp": null
     },
@@ -141,7 +141,7 @@
         "id": 17,
         "image": null,
         "video": "./media/video/Scene_17.mp4",
-        "videoLength": 11136,
+        "videoLength": 17323,
         "options": null,
         "hp": null
     },
@@ -158,8 +158,8 @@
         "_comment":"Du går ut och överlever",
         "id": 19,
         "image": null,
-        "video": "./media/video/Scene_19.mp4",
-        "videoLength": 13376,
+        "video": "./media/video/Scene_19_victory.mp4",
+        "videoLength": 19435,
         "options": null,
         "hp": null
     },
@@ -167,8 +167,8 @@
         "_comment":"Du går direkt ut och dör",
         "id": 20,
         "image": null,
-        "video": "./media/video/Scene_20.mp4",
-        "videoLength": 10539,
+        "video": "./media/video/Scene_20_v2.mp4",
+        "videoLength": 16790,
         "options": null,
         "hp": null
     }
