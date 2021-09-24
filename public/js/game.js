@@ -38,7 +38,10 @@ async function RenderScene(sceneNumber)
 
     // Ready for a new scene
     let scene = scenes[sceneNumber];
-    
+
+    // Show pause button for each scene
+    ShowPauseButton(true);
+
     if(scene.id === 0)
     {
         currentHp = 100;
@@ -57,8 +60,6 @@ async function RenderScene(sceneNumber)
         localStorage.setItem('scene', scene.id);
 
         ShowHud(true);
-
-        ShowPauseButton(true);
     }
 
     // PLay sound after first scenes
