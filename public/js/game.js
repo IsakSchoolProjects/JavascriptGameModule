@@ -19,13 +19,14 @@ let scenes = [];
         scenes = data;
     });
 
-    if(localStorage.getItem('scene') !== "0")
+    // If the player has a scene on going, we pause the game, and let the player choose to resume/reset. 
+    if(localStorage.getItem('scene') === null || localStorage.getItem('scene') === "0")
     {
-        Pause();
+        RenderScene(0);
     }
     else
     {
-        RenderScene(0);
+        Pause();
     }
 })();
 
